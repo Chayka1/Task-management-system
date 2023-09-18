@@ -33,7 +33,7 @@ class UserCreateAPIView(CreateAPIView):
     def get(self, request, format=None):
         users = User.objects.all()
         user = self.request.user
-        if user.role == Role.ADMIN or user.role == Role.MANAGER:
+        if user.role == Role.ADMIN:
             serializer = UserRegistrationResponseSerializer(users, many=True)
             return Response(serializer.data)
         else:
