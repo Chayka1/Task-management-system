@@ -9,8 +9,11 @@ class Team(models.Model):
         on_delete=models.CASCADE,
         related_name="admin_of_teams",
     )
-    worker = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, related_name="worker_of_teams"
+    worker = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name="worker_of_teams",
     )
 
     class Meta:
