@@ -9,6 +9,7 @@ class Team(models.Model):
         on_delete=models.CASCADE,
         related_name="admin_of_teams",
     )
+    task = models.TextField()
     worker = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -18,15 +19,3 @@ class Team(models.Model):
 
     class Meta:
         db_table = "team"
-
-
-class Task(models.Model):
-    team = models.ForeignKey(Team, on_delete=models.CASCADE)
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
-    task = models.TextField()
-
-    class Meta:
-        db_table = "task"
