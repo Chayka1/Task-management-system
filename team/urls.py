@@ -1,7 +1,7 @@
 from django.urls import path
 
-from team.api import TeamAPIView
+from team.api import TeamCreateView
 
 urlpatterns = [
-    path("", TeamAPIView.as_view()),
+    path("", TeamCreateView.as_view()),
 ]
