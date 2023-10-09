@@ -9,17 +9,18 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ("task", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ("team", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name="team",
-            name="admin",
+            model_name="task",
+            name="worker",
             field=models.ForeignKey(
+                null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                related_name="admin_of_teams",
+                related_name="worker_of_teams",
                 to=settings.AUTH_USER_MODEL,
             ),
         ),

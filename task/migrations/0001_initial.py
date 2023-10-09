@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Team",
+            name="Task",
             fields=[
                 (
                     "id",
@@ -21,10 +21,11 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("name", models.CharField(max_length=100)),
+                ("team", models.CharField(max_length=100)),
+                ("task", models.TextField()),
             ],
             options={
-                "db_table": "team",
+                "db_table": "task",
             },
         ),
     ]
